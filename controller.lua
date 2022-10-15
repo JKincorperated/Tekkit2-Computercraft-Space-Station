@@ -6,4 +6,7 @@ function Update()
     fs.open("index.lua", "w").write(index)
     local index = require("index")
     local updates = index.updates
+    print(updates)
 end
+
+Update()
