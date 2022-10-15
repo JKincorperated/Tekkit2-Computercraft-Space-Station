@@ -7,9 +7,10 @@ local program = coroutine.create(function ()
     end
 end)
 
-program.resume()
+	
+coroutine.resume(program)
 sleep(10)
-program.yeild()
+coroutine.yeild(program)
 
 while true do
     local message = rednet.receive("updates")
