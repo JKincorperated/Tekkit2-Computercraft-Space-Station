@@ -3,13 +3,16 @@ os.loadAPI("json")
 
 
 function Update()
+    print("Downloading Updates")
     local newest_controller = http.get("https://raw.githubusercontent.com/JKincorperated/Tekkit2-Computercraft-Space-Station/main/controller.lua").readAll()
     local updates = http.get("https://raw.githubusercontent.com/JKincorperated/Tekkit2-Computercraft-Space-Station/main/updates.json").readAll()
     local newstartup = http.get("https://raw.githubusercontent.com/JKincorperated/Tekkit2-Computercraft-Space-Station/main/startup.lua").readAll()
+    print("Success")
+    print("Updating Mainframe Centeral Software...")
     updates = json.decode(updates)
     fs.delete("controller.lua")
     open("controller.lua", "w").write(newest_controller)
-    print("Downloaded Updates")
+    print("Success")
     for _, value in ipairs(updates) do
         rednet.send(value["id"], "UPDATE-PRIME", "updates")
         --value["link"]
