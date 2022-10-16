@@ -25,13 +25,13 @@ else
 
         if message == "UPDATE-STARTUP" then
             local _, patch = rednet.receive()
-            os.remove("startup.lua")
+            fs.delete("startup.lua")
             fs.open("startup.lua", "w").write(patch)
         end
 
         if message == "UPDATE-DOWNLOAD" then
             local _, patch = rednet.receive()
-            os.remove(id .. ".lua")
+            fs.delete(id .. ".lua")
             fs.open(id .. ".lua", "w").write(patch)
         end
 
