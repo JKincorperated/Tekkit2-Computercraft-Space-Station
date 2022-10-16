@@ -4,6 +4,8 @@ local args = {...}
 
 local id = os.getComputerID()
 
+term.clear()
+
 if args[1] == "code" then
     while true do
         print("Hello World!")
@@ -21,26 +23,33 @@ else
         if message == "UPDATE-PRIME" then
             fs.open("prime", "w").write("true")
             os.reboot()
+        else
+            term.clear()
+            print(" ---- Computer " .. id .. " Primed For Update ---- ")
         end
 
         if message == "UPDATE-STARTUP" then
+            print("Updating Startup Files...")
             local _, patch = rednet.receive()
             fs.delete("startup.lua")
             fs.open("startup.lua", "w").write(patch)
+            print("Success")
         end
 
         if message == "UPDATE-DOWNLOAD" then
+            print("Updating System Files...")
             local _, patch = rednet.receive()
             fs.delete(id .. ".lua")
             fs.open(id .. ".lua", "w").write(patch)
+            print("Success")
         end
 
         if message == "UPDATE-COMPLETE" then
-            --pass
-            local ob = nil
+            print("Update Complete")
         end
 
         if message == "UPDATE-RESTART" then
+            print("Rebooting...")
             fs.open("prime", "w").write()
             os.reboot()
         end
