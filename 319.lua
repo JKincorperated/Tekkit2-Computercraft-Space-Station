@@ -4,14 +4,21 @@ local args = {...}
 
 local id = os.getComputerID()
 
+redstone.setOutput("bottom", false)
+
 term.setCursorPos(0,0)
 
 print(" --- System Online --- ")
 
 if args[1] == "code" then
     while true do
-        print("Hello World!")
-        sleep(1)
+        local _, message = rednet.receive()
+        if message == "MAINFRAME-LIGHTS-ON" then
+            redstone.setOutput("bottom", true)
+        end
+        if message == "MAINFRAME-LIGHTS-OFF" then
+            redstone.setOutput("bottom", false)
+        end
     end
     
 else
