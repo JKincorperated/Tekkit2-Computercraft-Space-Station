@@ -1,4 +1,4 @@
-rednet.open("top")
+rednet.open("back")
 os.loadAPI("json")
 
 rednet.send(319, "MAINFRAME-LIGHTS-ON")
