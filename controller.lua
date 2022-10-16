@@ -7,7 +7,7 @@ function Update()
     local updates = http.get("https://raw.githubusercontent.com/JKincorperated/Tekkit2-Computercraft-Space-Station/main/updates.json").readAll()
     updates = json.decode(updates)
     for _, value in ipairs(updates) do
-        rednet.send(value["id"], "UPDATE-PENDING", "updates")
+        rednet.send(value["id"], "UPDATE-PRIME", "updates")
         --value["link"]
     end
     sleep(60)
