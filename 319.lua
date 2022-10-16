@@ -6,6 +6,8 @@ local id = os.getComputerID()
 
 term.clear()
 
+print("Computer Online")
+
 if args[1] == "code" then
     while true do
         print("Hello World!")

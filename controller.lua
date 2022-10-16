@@ -15,13 +15,13 @@ function Update()
         --value["link"]
     end
     print("Published Update Status")
-    sleep(30)
+    sleep(7.5)
     print("Updating Startup Files")
     for _, value in ipairs(updates) do
         rednet.send(value["id"], "UPDATE-STARTUP", "updates")
         rednet.send(value["id"], newstartup, "updates")
     end
-    sleep(5)
+    sleep(2)
     print("Updated Startup Files")
     print("Updating Program Files")
     for _, value in ipairs(updates) do
@@ -33,7 +33,7 @@ function Update()
 
         rednet.send(value["id"], "UPDATE-COMPLETE", "updates")
     end
-    sleep(5)
+    sleep(2)
     print("Updated Program Files")
     for _, value in ipairs(updates) do
         rednet.send(value["id"], "UPDATE-RESTART", "updates")
