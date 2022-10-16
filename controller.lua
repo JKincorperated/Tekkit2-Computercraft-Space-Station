@@ -11,7 +11,7 @@ function Update()
     print("Updating Mainframe Centeral Software...")
     updates = json.decode(updates)
     fs.delete("controller.lua")
-    open("controller.lua", "w").write(newest_controller)
+    fs.open("controller.lua", "w").write(newest_controller)
     print("Success")
     for _, value in ipairs(updates) do
         rednet.send(value["id"], "UPDATE-PRIME", "updates")
