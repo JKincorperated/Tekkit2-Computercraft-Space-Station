@@ -4,8 +4,6 @@ local args = {...}
 
 local id = os.getComputerID()
 
-term.clear()
-
 term.setCursorPos(0,0)
 
 print(" --- System Online --- ")
@@ -20,6 +18,8 @@ else
 
     if fs.open("prime", "r") == nil or fs.open("prime", "r").read(5) ~= "true" then
         shell.openTab(id .. ".lua", "code")
+    else
+        print(" ---- Computer " .. id .. " Primed For Update ---- ")
     end
     
     while true do
@@ -27,8 +27,6 @@ else
         if message == "UPDATE-PRIME" then
             fs.open("prime", "w").write("true")
             os.reboot()
-        else
-            print(" ---- Computer " .. id .. " Primed For Update ---- ")
         end
 
         if message == "UPDATE-STARTUP" then
