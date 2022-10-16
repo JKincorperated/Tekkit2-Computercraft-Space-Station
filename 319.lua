@@ -6,7 +6,9 @@ local id = os.getComputerID()
 
 term.clear()
 
-print("Computer Online")
+term.setCursorPos(0,0)
+
+print(" --- System Online --- ")
 
 if args[1] == "code" then
     while true do
@@ -26,7 +28,6 @@ else
             fs.open("prime", "w").write("true")
             os.reboot()
         else
-            term.clear()
             print(" ---- Computer " .. id .. " Primed For Update ---- ")
         end
 
