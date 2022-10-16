@@ -1,6 +1,7 @@
 rednet.open("top")
 os.loadAPI("json")
 
+rednet.send(319, "MAINFRAME-LIGHTS-ON")
 
 function Update()
     print("Downloading Updates")
