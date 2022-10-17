@@ -10,18 +10,14 @@ term.setCursorPos(0,0)
 
 print(" --- System Online --- ")
 
-if args[1] == "code" then
-    while true do
-        local _, message = rednet.receive()
-        if message == "MAINFRAME-LIGHTS-ON" then
-            redstone.setOutput("bottom", true)
-        end
-        if message == "MAINFRAME-LIGHTS-OFF" then
-            redstone.setOutput("bottom", false)
-        end
-    end
-    
-else
+
+--if args[1] == "code" then
+--    while true do
+--        local _, message = rednet.receive()
+--        
+--    end
+--    
+--else
 
     if fs.open("prime", "r") == nil or fs.open("prime", "r").read(5) ~= "true" then
         shell.openTab(id .. ".lua", "code")
@@ -35,7 +31,12 @@ else
             fs.open("prime", "w").write("true")
             os.reboot()
         end
-
+        if message == "MAINFRAME-LIGHTS-ON" then
+            redstone.setOutput("bottom", true)
+        end
+        if message == "MAINFRAME-LIGHTS-OFF" then
+            redstone.setOutput("bottom", false)
+        end
         if message == "UPDATE-STARTUP" then
             print("Updating Startup Files...")
             local _, patch = rednet.receive()
@@ -62,4 +63,4 @@ else
             os.reboot()
         end
     end
-end
+--end
