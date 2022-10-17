@@ -4,7 +4,7 @@ local args = {...}
 
 local id = os.getComputerID()
 
-redstone.setOutput("bottom", false)
+redstone.setOutput("back", false)
 
 term.setCursorPos(0,0)
 
@@ -25,10 +25,10 @@ print(" --- System Online --- ")
             os.reboot()
         end
         if message == "LIGHTS-ON" then
-            redstone.setOutput("bottom", true)
+            redstone.setOutput("back", true)
         end
         if message == "LIGHTS-OFF" then
-            redstone.setOutput("bottom", false)
+            redstone.setOutput("back", false)
         end
         if message == "UPDATE-STARTUP" then
             print("Updating Startup Files...")
