@@ -8,7 +8,7 @@ local id = os.getComputerID()
 print(" --- System Online --- ")
 
 if args[1] == "code" then
-    local reactor = peripheral.wrap("nuclear reactor_5")
+    local reactor = peripheral.wrap("ic2:nuclear reactor_5")
     local wired = peripheral.wrap("left")
     local wireless = peripheral.wrap("top")
 
