@@ -18,9 +18,9 @@ if args[1] == "code" then
         mon.setTextColor(colors.white)
         mon.setBackgroundColor(colors.gray)
         mon.setCursorPos(1,1)
-        mon.write("-- Mainframe Issued Update --")
-        mon.setCursorPos(1,15)
-        mon.write("   Awaiting Update Package")
+        mon.write("-- Mainframe System Status --")
+        mon.setCursorPos(1,7)
+        mon.write("        System Online        ")
         sleep(1)
     end    
 else
@@ -34,7 +34,7 @@ else
         mon.setBackgroundColor(colors.gray)
         mon.setCursorPos(1,1)
         mon.write("-- Mainframe Issued Update --")
-        mon.setCursorPos(1,15)
+        mon.setCursorPos(1,7)
         mon.write("   Awaiting Update Package")
     end
     
@@ -45,32 +45,32 @@ else
             os.reboot()
         end
         if message == "UPDATE-STARTUP" then
-            mon.setCursorPos(1,15)
+            mon.setCursorPos(1,7)
             mon.write("      Upgrading BIOS      ")
             print("Updating Startup Files...")
             local _, patch = rednet.receive()
             fs.delete("startup.lua")
             fs.open("startup.lua", "w").write(patch)
             print("Success")
-            mon.setCursorPos(1,15)
+            mon.setCursorPos(1,7)
             mon.write("      Upgraded BIOS      ")
         end
 
         if message == "UPDATE-DOWNLOAD" then
-            mon.setCursorPos(1,15)
+            mon.setCursorPos(1,7)
             mon.write("     Upgrading System     ")
             print("Updating System Files...")
             local _, patch = rednet.receive()
             fs.delete(id .. ".lua")
             fs.open(id .. ".lua", "w").write(patch)
             print("Success")
-            mon.setCursorPos(1,15)
+            mon.setCursorPos(1,7)
             mon.write("     Upgraded System     ")
         end
 
         if message == "UPDATE-COMPLETE" then
             print("Update Complete")
-            mon.setCursorPos(1,15)
+            mon.setCursorPos(1,7)
             mon.write("     Upgrade Complete     ")
         end
 

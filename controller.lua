@@ -43,6 +43,8 @@ function Update()
     os.reboot()
 end
 
+sleep(1)
+
 rednet.send(319, "MAINFRAME-LIGHTS-ON")
 
 while true do
