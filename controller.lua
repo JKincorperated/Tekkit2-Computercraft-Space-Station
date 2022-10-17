@@ -46,6 +46,7 @@ end
 sleep(1)
 
 rednet.send(319, "MAINFRAME-LIGHTS-ON")
+rednet.send(341, "LIGHTS-ON")
 
 while true do
 	term.write(">")
@@ -58,8 +59,9 @@ while true do
         os.reboot()
     elseif command == "all lights off" then
         rednet.send(319, "MAINFRAME-LIGHTS-OFF")
+        rednet.send(341, "LIGHTS-OFF")
     elseif command == "all lights on" then
-        rednet.send(319, "MAINFRAME-LIGHTS-ON")
+        rednet.send(341, "LIGHTS-ON")
     else do
         print("Unkown command or syntax error")
     end
