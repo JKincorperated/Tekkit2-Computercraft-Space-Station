@@ -1,8 +1,6 @@
 rednet.open("back")
 os.loadAPI("json")
 
-rednet.send(319, "MAINFRAME-LIGHTS-ON")
-
 function Update()
     print("Downloading Updates")
     local newest_controller = http.get("https://raw.githubusercontent.com/JKincorperated/Tekkit2-Computercraft-Space-Station/main/controller.lua").readAll()
@@ -45,4 +43,25 @@ function Update()
     os.reboot()
 end
 
-Update()
+rednet.send(319, "MAINFRAME-LIGHTS-ON")
+
+while true do
+	term.write(">")
+	local command = read()	
+    if command == "update" then
+        Update()
+    elseif command == "shutdown" then
+        os.shutdown()
+    elseif command == "restart" or command == "reboot" then
+        os.reboot()
+    elseif command == "all lights off" then
+        rednet.send(319, "MAINFRAME-LIGHTS-OFF")
+    elseif command == "all lights on" then
+        rednet.send(319, "MAINFRAME-LIGHTS-ON")
+    else do
+        print("Unkown command or syntax error")
+    end
+    end
+end
+
+
