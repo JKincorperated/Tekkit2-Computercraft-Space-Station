@@ -49,7 +49,7 @@ rednet.send(319, "MAINFRAME-LIGHTS-ON")
 rednet.send(341, "LIGHTS-ON")
 
 while true do
-	term.write(">")
+	term.write("> ")
 	local command = read()	
     if command == "update" then
         Update()
