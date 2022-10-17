@@ -18,13 +18,6 @@ print(" --- System Online --- ")
 --    end
 --    
 --else
-
-    if fs.open("prime", "r") == nil or fs.open("prime", "r").read(5) ~= "true" then
-        shell.openTab(id .. ".lua", "code")
-    else
-        print(" ---- Computer " .. id .. " Primed For Update ---- ")
-    end
-    
     while true do
         local _, message = rednet.receive()
         if message == "UPDATE-PRIME" then
