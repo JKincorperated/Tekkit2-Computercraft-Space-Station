@@ -20,7 +20,7 @@ print(" --- System Online --- ")
 --else
 
 if fs.open("prime", "r") == nil or fs.open("prime", "r").read(5) ~= "true" then
-    redstone.setOutput("bottom", false)
+    redstone.setOutput("bottom", true)
 else
     print(" ---- Computer " .. id .. " Primed For Update ---- ")
 end
