@@ -31,7 +31,7 @@ while true do
     local _, message = rednet.receive(nil, 0.5)
 
     if party then
-        redstone.setOutput("bottom", redstone.getOutput("bottom"))
+        redstone.setOutput("bottom", redstone.getOutput("bottom") ~= true)
     end
 
     if message == "UPDATE-PRIME" then
