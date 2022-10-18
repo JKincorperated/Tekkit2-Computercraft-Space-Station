@@ -12,7 +12,7 @@ print(" --- System Online --- ")
 
 local mon = peripheral.find("monitor")
 
-local party = true
+local party = false
 
 local x = 1
 
