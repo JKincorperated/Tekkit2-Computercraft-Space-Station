@@ -72,6 +72,7 @@ while true do
         rednet.send(341, "LIGHTS-OFF")
     elseif command == "all lights on" then
         rednet.send(341, "LIGHTS-ON")
+        rednet.send(319, "MAINFRAME-LIGHTS-ON")
     else do
         print("Unkown command or syntax error")
     end
