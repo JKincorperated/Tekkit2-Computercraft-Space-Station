@@ -61,10 +61,12 @@ while true do
         rednet.send(346, "PLAY")
         rednet.send(319, "PARTY")
         rednet.send(341, "PARTY")
+        rednet.broadcast("MONPARTYTIME")
     elseif command == "party stop" then
         rednet.send(346, "STOP")
         rednet.send(319, "NOPARTY")
         rednet.send(341, "NOPARTY")
+        rednet.broadcast("MONNOPARTY")
     elseif command == "all lights off" then
         rednet.send(319, "MAINFRAME-LIGHTS-OFF")
         rednet.send(341, "LIGHTS-OFF")

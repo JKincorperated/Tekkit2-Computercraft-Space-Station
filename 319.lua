@@ -28,7 +28,7 @@ end
 local party = false
 
 while true do
-    local _, message = rednet.receive(nil, 0.5)
+    local _, message = rednet.receive(nil, 0.25)
 
     if party then
         redstone.setOutput("bottom", redstone.getOutput("bottom") ~= true)

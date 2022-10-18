@@ -12,16 +12,59 @@ print(" --- System Online --- ")
 
 local mon = peripheral.find("monitor")
 
+local party = true
+
+local x = 1
+
+local colors = {
+    2,
+    4,
+    16,
+    32,
+    512,
+    1024,
+    2048,
+    8192,
+    16384,
+}
+
+local x = 0
+
 if args[1] == "code" then
     while true do
-        mon.clear()
-        mon.setTextColor(colors.white)
-        mon.setBackgroundColor(colors.gray)
-        mon.setCursorPos(1,1)
-        mon.write("-- Mainframe System Status --")
-        mon.setCursorPos(1,7)
-        mon.write("        System Online        ")
-        sleep(1)
+        local _, message rednet.receive(nil, 0.25)
+
+        if party then
+            mon.setCursorPos(1,7)
+            mon.write("        PARTY TIME       ")
+            mon.setCursorPos(1,7)
+            mon.write("     THOU SHALL DANCE    ")
+            mon.setTextColor(colors.black)
+            mon.setBackgroundColor(colors[x])
+
+            x = x + 1
+            if x == 10 then
+                x = 1
+            end
+        else
+            mon.clear()
+            mon.setTextColor(colors.white)
+            mon.setBackgroundColor(colors.gray)
+            mon.setCursorPos(1,1)
+            mon.write("-- Mainframe System Status --")
+            mon.setCursorPos(1,7)
+            mon.write("        System Online        ")
+            sleep(1)
+        end
+
+        if message == "MONPARTYTIME" then
+            party = true
+        end
+
+        if message == "MONNOPARTY" then
+            party = false
+        end
+        
     end    
 else
 
