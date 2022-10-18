@@ -1,4 +1,4 @@
-rednet.open("right")
+rednet.open("top")
 
 local args = { ... }
 
