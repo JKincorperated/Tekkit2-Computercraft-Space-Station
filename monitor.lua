@@ -28,15 +28,15 @@ local pcolors = {
     16384,
 }
 
+fs.open("message", "w").write("")
+
 local x = 0
 
 if args[1] == "code" then
     while true do
-        local _, message rednet.receive(nil, 0.25)
+        sleep(0.25)
+        local message = fs.open("message", "r").read()
 
-        if message ~= nil then
-            print(message)
-        end
 
         if party then
             mon.setCursorPos(1,7)
@@ -87,6 +87,7 @@ else
     
     while true do
         local _, message = rednet.receive()
+        fs.open("message", "w").write(message)
         if message == "UPDATE-PRIME" then
             fs.open("prime", "w").write("true")
             os.reboot()
