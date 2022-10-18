@@ -4,6 +4,7 @@ local args = { ... }
 
 local id = os.getComputerID()
 
+peripheral.wrap("bottom").stop()
 
 print(" --- System Online --- ")
 
