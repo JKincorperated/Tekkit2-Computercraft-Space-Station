@@ -34,6 +34,10 @@ if args[1] == "code" then
     while true do
         local _, message rednet.receive(nil, 0.25)
 
+        if message ~= nil then
+            print(message)
+        end
+
         if party then
             mon.setCursorPos(1,7)
             mon.write("        PARTY TIME       ")
