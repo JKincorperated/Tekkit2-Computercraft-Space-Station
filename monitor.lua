@@ -16,7 +16,7 @@ local party = false
 
 local x = 1
 
-local colors = {
+local pcolors = {
     2,
     4,
     16,
@@ -39,8 +39,8 @@ if args[1] == "code" then
             mon.write("        PARTY TIME       ")
             mon.setCursorPos(1,7)
             mon.write("     THOU SHALL DANCE    ")
-            mon.setTextColor(32768)
-            mon.setBackgroundColor(colors[x])
+            mon.setTextColor(colors.black)
+            mon.setBackgroundColor(pcolors[x])
 
             x = x + 1
             if x == 10 then
