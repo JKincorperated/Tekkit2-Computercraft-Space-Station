@@ -39,7 +39,7 @@ if args[1] == "code" then
             mon.write("        PARTY TIME       ")
             mon.setCursorPos(1,7)
             mon.write("     THOU SHALL DANCE    ")
-            mon.setTextColor(colors.black)
+            mon.setTextColor(32768)
             mon.setBackgroundColor(colors[x])
 
             x = x + 1
