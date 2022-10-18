@@ -37,7 +37,7 @@ if args[1] == "code" then
             OpenWired()
             term.clear()
 
-            active = reactor.isActive()
+            active = reactor.isReactorActive()
             euOutput = reactor.getEUOutput() * 5
             heat = reactor.getHeat()
             heatMax = reactor.getMaxHeat()
