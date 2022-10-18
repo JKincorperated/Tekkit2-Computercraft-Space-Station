@@ -43,6 +43,16 @@ else
             print("Update Complete")
         end
 
+        if message == "PLAY" then
+            peripheral.wrap("bottom").seek(0)
+            peripheral.wrap("bottom").play()
+        end
+
+        if message == "STOP" then
+            peripheral.wrap("bottom").seek(0)
+            peripheral.wrap("bottom").stop()
+        end
+
         if message == "UPDATE-RESTART" then
             print("Rebooting...")
             fs.open("prime", "w").write()

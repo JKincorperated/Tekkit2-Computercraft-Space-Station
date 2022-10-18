@@ -24,11 +24,24 @@ else
     print(" ---- Computer " .. id .. " Primed For Update ---- ")
 end
 
+local party = false
+
 while true do
-    local _, message = rednet.receive()
+    local _, message = rednet.receive(nil, 0.5)
+
+    if party then
+        redstone.setOutput("bottom", redstone.getOutput("bottom"))
+    end
+
     if message == "UPDATE-PRIME" then
         fs.open("prime", "w").write("true")
         os.reboot()
+    end
+    if message == "PARTY" then
+        party = true
+    end
+    if message == "NOPARTY" then
+        party = false
     end
     if message == "LIGHTS-ON" then
         redstone.setOutput("back", true)
