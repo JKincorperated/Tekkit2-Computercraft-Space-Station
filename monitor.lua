@@ -87,6 +87,7 @@ else
     
     while true do
         local _, message = rednet.receive()
+        print(message)
         fs.open("message", "w").write(message)
         if message == "UPDATE-PRIME" then
             fs.open("prime", "w").write("true")
