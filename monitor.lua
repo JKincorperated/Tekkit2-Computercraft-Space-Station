@@ -35,7 +35,7 @@ local x = 0
 if args[1] == "code" then
     while true do
         sleep(0.25)
-        local message = fs.open("message", "r").read()
+        local message = fs.open("message", "r").read(100)
 
 
         if party then
