@@ -14,8 +14,6 @@ local mon = peripheral.find("monitor")
 
 local party = false
 
-local x = 1
-
 local pcolors = {
     2,
     4,
@@ -30,7 +28,7 @@ local pcolors = {
 
 fs.open("message", "w").write("")
 
-local x = 0
+local x = 1
 
 if args[1] == "code" then
     while true do
@@ -41,7 +39,7 @@ if args[1] == "code" then
 
 
         if party then
-            mon.setCursorPos(1,7)
+            mon.setCursorPos(1,1)
             mon.write("        PARTY TIME       ")
             mon.setCursorPos(1,7)
             mon.write("     THOU SHALL DANCE    ")
