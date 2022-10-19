@@ -39,9 +39,9 @@ if args[1] == "code" then
 
 
         if party then
-            mon.setCursorPos(1,1)
-            mon.write("          PARTY TIME              ")
             mon.setCursorPos(1,2)
+            mon.write("          PARTY TIME              ")
+            mon.setCursorPos(1,1)
             mon.write("                                  ")
             mon.setCursorPos(1,3)
             mon.write("                                  ")
@@ -58,6 +58,8 @@ if args[1] == "code" then
             mon.setCursorPos(1,11)
             mon.write("                                  ")
             mon.setCursorPos(1,12)
+            mon.write("                                  ")
+            mon.setCursorPos(1,10)
             mon.write("                                  ")
             mon.setCursorPos(1,7)
             mon.write("       THOU SHALL DANCE           ")
@@ -105,6 +107,14 @@ else
     
     while true do
         local _, message = rednet.receive()
+        if message == "MONPARTYTIME" then
+            fs.open("message", "w").write("MONPARTYTIME")
+        end
+
+        if message == "MONNOPARTY" then
+            fs.open("message", "w").write("MONNOPARTY")
+        end
+        
         if message == "UPDATE-PRIME" then
             fs.open("prime", "w").write("true")
             os.reboot()
@@ -144,6 +154,5 @@ else
             fs.open("prime", "w").write()
             os.reboot()
         end
-        fs.open("message", "w").write(message)
     end
 end
