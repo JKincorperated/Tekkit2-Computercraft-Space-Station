@@ -37,6 +37,8 @@ if args[1] == "code" then
         sleep(0.25)
         local message = fs.open("message", "r").readAll()
 
+        print(message)
+
 
         if party then
             mon.setCursorPos(1,7)
