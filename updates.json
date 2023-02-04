@@ -34,5 +34,9 @@
     {
         "id" : 347,
         "link" : "https://raw.githubusercontent.com/JKincorperated/Tekkit2-Computercraft-Space-Station/main/monitor.lua"
+    },
+    {
+        "id" : 2466,
+        "link" : "https://raw.githubusercontent.com/JKincorperated/Tekkit2-Computercraft-Space-Station/main/reactor/mon.lua"
     }
 ]

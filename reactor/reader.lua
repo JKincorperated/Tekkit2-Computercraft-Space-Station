@@ -38,7 +38,7 @@ if args[1] == "code" then
             term.clear()
 
             active = reactor.isReactorActive()
-            euOutput = reactor.getEUOutput() * 5
+            euOutput = reactor.getReactorEUOutput() * 5
             heat = reactor.getHeat()
             heatMax = reactor.getMaxHeat()
 
